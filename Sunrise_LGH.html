@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sunrise_LGH</title>
+      <style> body {font-family: "Lato"}
+            /* Fixed sidenav, full height */
+            .sidenav {height: 100%; width: 175px; position: fixed; z-index: 1; top: 0; left: 0; background-color: #c369ff; overflow-x: hidden; padding-top: 20px;}
+
+            /* Style the sidenav links and the dropdown button */
+            .sidenav a, .dropdown-btn {padding: 6px 8px 6px 16px; text-decoration: none; font-size: 20px; color: #ffffff; display: block; border: none; background: none; width: 100%; text-align: left; cursor: pointer; outline: none;}
+
+            /* On mouse-over */
+            .sidenav a:hover, .dropdown-btn:hover {color: #00ff2f;}
+
+            /* Main content */
+            .main {margin-left: 175px; font-size: 20px; padding: 0px 10px;}
+            .header {padding: 5px; text-align: center; background: #0000ff; color: white; font-size: 15px;}
+      </style>
+    <script>
+      function printClock() {var clock = document.getElementById("clock");  // 출력할 장소 선택
+                            var currentDate = new Date();  // 현재시간
+                            var amPm = 'AM'; // 초기값 AM
+                            var currentHours = addZeros(currentDate.getHours(),2);
+                            var currentMinute = addZeros(currentDate.getMinutes(),2);
+                            var currentSeconds =  addZeros(currentDate.getSeconds(),2);
+      if(currentHours >= 12){amPm = 'PM'; currentHours = addZeros(currentHours - 12,2);} // 시간이 12보다 클 때 PM으로 세팅, 12를 빼줌
+      if(currentSeconds >= 50){currentSeconds = '<span style="color:#ff0000;">'+currentSeconds+'</span>'} // 50초 이상일 때 색을 변환해 준다.
+        clock.innerHTML = currentHours+":"+currentMinute+":"+currentSeconds +" <span style='font-size:50px;'>"+ amPm+"</span>"; //날짜를 출력해 줌
+        setTimeout("printClock()",1000);} // 1초마다 printClock() 함수 호출
+      function addZeros(num, digit) {var zero = ''; num = num.toString(); if (num.length < digit) {for (i = 0; i < digit - num.length; i++) {zero += '0';}} return zero + num;} // 자릿수 맞춰주기
+    </script>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="Sunrise_LGH.html">Home</a>
+      <a href="About.html">About Me</a>
+      <a href="Activity.html">Activity</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+    <div class="main">
+      <style> body {background-image: url('Main.jpg');}
+      </style>
+    <div class="header">
+      <h1 style="color:#ffff00">Welcome to my personal website! (저의 개인 website에 오신 것을 환영합니다!)</h1>
+    </div>
+      <ul>
+        <li style="color:#00fffb">This is the place where you can give a try to be inspired. <br>(여기는 당신이 영감을 얻기 위해 노력할 수 있는 장소입니다.)</li>
+        <br>
+        <li style="color:#00fffb">Each contents of the menu were made <u>as simple as possible</u> because of the lack of my HTML coding skill. <br>(각각의 메뉴의 내용들은 저의 부족한 HTML coding 능력 때문에 최대한 간단하게 만들어졌습니다.)</li>
+        <br>
+        <li style="color:#00fffb">I am so sorry for it, but I wish you understand my current situation. <br>(이 부분에 대해서 매우 죄송스럽게 생각합니다. 그러나 현재 저의 상황을 부디 이해해주기를 바랍니다.) </li>
+      </ul>
+      <br>
+    <h2 style="color:white"> <-- Click the menu at the left side and look around my website! <br><-- (왼쪽 상단에 있는 메뉴를 눌러서 저의 website를 둘러보세요!)</h2>
+    <br><br><br>
+  </body>
+    <body onload="printClock()">
+    	<div style="border:1px solid #ffff00; width:600px; height:250px; line-height:250px; color:#00ff00;font-size:100px; text-align:center;" id="clock">
+    	</div>
+    </body>
+</html>
